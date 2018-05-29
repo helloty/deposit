@@ -35,14 +35,11 @@
                     <div class="item">
                         <a href="#info" class="animated fadeInUp">班级账本</a>
                     </div>
-                    <div class="item">
-                        <a href="#about" class="animated fadeInUp">关于我们</a>
-                    </div>
                 </div>
             </div>
             <div class="row hero-content">
                 <div class="col-md-12 text-center" style="margin-top: 10%">
-                    <h1 class="animated fadeInDown">班费管理，原来这么简单!</h1>
+                    <h1 class="animated fadeInDown">班费管理，如此简单!</h1>
                     <a href="#info" class="read-btn animated fadeInUp">开启</a>
 
                     <h1 id="noExtension" style="display: none">请安装
@@ -112,18 +109,17 @@
 
             <form class="form-horizontal" style="margin-top: 50px;">
                 <div class="form-group">
-                    <label class="col-sm-2 control-label">消费类型</label>
+                    <label class="col-sm-2 control-label">类型</label>
                     <div class="col-sm-4">
                         <select class="form-control" id="xfType">
                             <option value="0">请选择</option>
-                            <option value="1">衣</option>
-                            <option value="2">食</option>
-                            <option value="3">住</option>
-                            <option value="4">行</option>
-                            <option value="5">其他</option>
+                            <option value="1">采购</option>
+                            <option value="2">活动</option>
+                            <option value="3">奖励</option>
+                            <option value="4">其他</option>
                         </select>
                     </div>
-                    <label class="col-sm-2 control-label">消费金额</label>
+                    <label class="col-sm-2 control-label">金额</label>
                     <div class="col-sm-4">
                         <input type="number" id="money" class="form-control" placeholder="请输入消费金额">
                     </div>
@@ -133,6 +129,12 @@
                     <div class="col-sm-4">
                         <input type="date" class="form-control" id="xfDate" placeholder="请选择时间">
                     </div>
+                    <label class="col-sm-2 control-label">经办人</label>
+                    <div class="col-sm-4">
+                        <input type="email" class="form-control" id="user" placeholder="请填写经办人">
+                    </div>
+                </div>
+                <div class="form-group">
                     <label class="col-sm-2 control-label">备注</label>
                     <div class="col-sm-4">
                         <input type="email" class="form-control" id="remark" placeholder="备注">
@@ -140,7 +142,7 @@
                 </div>
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
-                        <button type="button" id="push" class="btn btn-default">记一笔</button>
+                        <button type="button" id="push" class="btn btn-default">记录</button>
                     </div>
                 </div>
             </form>
@@ -205,11 +207,9 @@
             var result = resp.result
             if (result === 'null' || result == '') {
                 myChart.setOption(option);
-                myChart2.setOption(option2);
                 $('.myAccount').css('height', 'auto');
             } else {
                 myChart.setOption(option);
-                myChart2.setOption(option2);
                 $('.myAccount').css('height', 'auto');
                 /* Vue.set(app, 'list', obj);
                  $('#app').show();*/
@@ -224,22 +224,10 @@
                     }
                     obj.push(temp);
                 }
-                var xAxis = [];
-                var yAxis = [];
-                for (var i = 0; i < len; i++) {
-                    xAxis.push(resultObj.date.split('|-')[i])
-                    yAxis.push(resultObj.money.split('|-')[i])
-                }
                 myChart.setOption({
                     series: [{data: obj}]
                 });
 
-                myChart2.setOption({
-                    xAxis: {
-                        data: xAxis
-                    },
-                    series: [{data: yAxis}]
-                });
             }
 
         }
@@ -259,7 +247,7 @@
             } else if (money == '') {
                 layer.msg('消费金额不能为空');
                 return;
-            }else if(xfDate){
+            } else if (xfDate) {
                 layer.msg('消费时间不能为空');
                 return;
             }
@@ -330,27 +318,6 @@
             }
         ]
     };
-    //-------------------------------------------------
-    var myChart2 = echarts.init(document.getElementById('main2'));
-    var option2 = {
-        title: {
-            text: 'ECharts 入门示例'
-        },
-        tooltip: {},
-        legend: {
-            data: ['消费']
-        },
-        xAxis: {
-            data: []
-        },
-        yAxis: {},
-        series: [{
-            name: '消费',
-            type: 'bar',
-            data: []
-        }]
-    };
-
 
 </script>
 </body>
