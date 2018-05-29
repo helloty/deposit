@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+<html lang="en" class="no-js">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>首页</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+</head>
+
+<body>
+<header id="main">
+    <section class="hero">
+        <div class="container">
+            <div class="row nav-wrapper">
+                <div class="col-md-6 col-sm-6 col-xs-6 text-left" style="font-size: 20px">
+                    CLASS DEPOSIT
+                </div>
+                <div class="col-md-6 col-sm-6 col-xs-6 text-left job-menu" style="font-size: 16px">
+                    <div class="item">
+                        <a href="#info" class="animated fadeInUp">记一笔</a>
+                    </div>
+                    <div class="item">
+                        <a href="#info" class="animated fadeInUp">班级账本</a>
+                    </div>
+                    <div class="item">
+                        <a href="#about" class="animated fadeInUp">关于我们</a>
+                    </div>
+                </div>
+            </div>
+            <div class="row hero-content">
+                <div class="col-md-12 text-center" style="margin-top: 10%">
+                    <h1 class="animated fadeInDown">班费管理，原来这么简单!</h1>
+                    <a href="#info" class="read-btn animated fadeInUp">开启</a>
+
+                    <h1 id="noExtension" style="display: none">请安装
+                        <a target="_blank"
+                           href="https://github.com/ChengOrangeJu/WebExtensionWallet">WebExtensionWallet</a> 再使用</h1>
+                </div>
+            </div>
+        </div>
+    </section>
+</header>
+<section class="services-list" id="info">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="col-md-4 feature-1 wp2">
+                    <div class="feature-content">
+                        <img src="img/a.png" alt="">
+                        <h1>安全</h1>
+                        <p>基于新一代公链星云链加密</p>
+                    </div>
+                </div>
+                <div class="col-md-4 feature-3 wp2 delay-05s">
+                    <div class="feature-content">
+                        <img src="img/b.png" alt="">
+                        <h1>简单</h1>
+                        <p>基于钱包地址，无需注册</p>
+                    </div>
+                </div>
+                <div class="col-md-4 feature-2 wp2 delay-1s">
+                    <div class="feature-content">
+                        <img src="img/c.png" alt="">
+                        <h1>私密</h1>
+                        <p>免实名档案</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="set" class="container page-section">
+    <div class="inner contact wp2 delay-05s">
+        <div class="contact-form" style="overflow:hidden;">
+            <!-- Form -->
+            <!-- Left Inputs -->
+            <div class="col-xs-12 animated fadeInLeft visible" data-animation="fadeInLeft" data-animation-delay="300">
+                <input type="text" id="userId" class="form" value="13712345678abcdef" placeholder="账本密钥 （手机号+密码）">
+            </div>
+            <!-- Bottom Submit -->
+            <div class="relative fullwidth col-xs-12">
+                <!-- Send Button -->
+                <button id="search" class="form-btn semibold">查询</button>
+            </div>
+            <!-- End Bottom Submit -->
+            <!-- Clear -->
+            <div class="clear"></div>
+        </div>
+
+        <div style="height: 140px;"></div>
+
+        <div class="myAccount" style="width: 100%;height: 0;overflow:hidden;">
+            <div style="overflow: hidden">
+                <div id="main1" style="width: 50%;height:400px;float: left;"></div>
+                <div id="main2" style="width: 50%;height:400px;float: left;"></div>
+            </div>
+
+
+            <form class="form-horizontal" style="margin-top: 50px;">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">消费类型</label>
+                    <div class="col-sm-4">
+                        <select class="form-control" id="xfType">
+                            <option value="0">请选择</option>
+                            <option value="1">衣</option>
+                            <option value="2">食</option>
+                            <option value="3">住</option>
+                            <option value="4">行</option>
+                            <option value="5">其他</option>
+                        </select>
+                    </div>
+                    <label class="col-sm-2 control-label">消费金额</label>
+                    <div class="col-sm-4">
+                        <input type="number" id="money" class="form-control" placeholder="请输入消费金额">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">时间</label>
+                    <div class="col-sm-4">
+                        <input type="date" class="form-control" id="xfDate" placeholder="请选择时间">
+                    </div>
+                    <label class="col-sm-2 control-label">备注</label>
+                    <div class="col-sm-4">
+                        <input type="email" class="form-control" id="remark" placeholder="备注">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="button" id="push" class="btn btn-default">记一笔</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</section>
+<footer id="about" class="footer">
+    <section id="site-socials" class="no-padding white-bg">
+        <div class="site-socials inner no-padding">
+            <div class="address socials animated fadeInRight visible" data-animation="fadeInRight"
+                 data-animation-delay="500">
+                <p>Copyright &copy; 2018.基于新一代区块链公链<a href="https://nebulas.io/" target="_blank">NAS</a>&nbsp;&nbsp;&nbsp;
+                    <a href="https://incentive.nebulas.io/cn/signup.html?invite=32KAi"
+                       target="_blank">点我发布DAPP获取100NAS</a>
+                </p>
+            </div>
+        </div>
+    </section>
+</footer>
+
+<script src=js/nebPay.js></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/waypoints.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/scripts.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script src="js/layer/layer.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    $(function () {
+        var NebPay = require("nebpay");
+        var nebPay = new NebPay();
+
+        var dappAddress = "n1g9x8ZaYH4PfTi8BJoTNvpA7S6rYjYQ433";
+        //检查扩展是否已安装
+        //如果安装了扩展，var“webExtensionWallet”将被注入到web页面中1
+        setTimeout(function () {
+            if (typeof (webExtensionWallet) === "undefined") {
+                //alert ("扩展钱包未安装，请先安装.")
+                $("#noExtension").show();
+            }
+        }, 500);
+
+        $('#search').on('click', function () {
+            var token = $('#userId').val();
+            if (token == '') {
+                layer.msg('账本密钥不能为空');
+                return;
+            }
+            sessionStorage.setItem('iaccount_token', token);
+            var to = dappAddress;
+            var value = "0";
+            var callFunction = "get";
+            var callArgs = [];
+            callArgs.push(token);
+            nebPay.simulateCall(to, value, callFunction, JSON.stringify(callArgs), {
+                listener: cbSearch
+            });
+        })
+
+        function cbSearch(resp) {
+            var result = resp.result
+            if (result === 'null' || result == '') {
+                myChart.setOption(option);
+                myChart2.setOption(option2);
+                $('.myAccount').css('height', 'auto');
+            } else {
+                myChart.setOption(option);
+                myChart2.setOption(option2);
+                $('.myAccount').css('height', 'auto');
+                /* Vue.set(app, 'list', obj);
+                 $('#app').show();*/
+
+                var resultObj = JSON.parse(result);
+                var len = resultObj.value.split('|-').length;
+                var obj = [];
+                for (var i = 0; i < len; i++) {
+                    var temp = {
+                        value: resultObj.money.split('|-')[i],
+                        name: getChartName(resultObj.value.split('|-')[i]),
+                    }
+                    obj.push(temp);
+                }
+                var xAxis = [];
+                var yAxis = [];
+                for (var i = 0; i < len; i++) {
+                    xAxis.push(resultObj.date.split('|-')[i])
+                    yAxis.push(resultObj.money.split('|-')[i])
+                }
+                myChart.setOption({
+                    series: [{data: obj}]
+                });
+
+                myChart2.setOption({
+                    xAxis: {
+                        data: xAxis
+                    },
+                    series: [{data: yAxis}]
+                });
+            }
+
+        }
+
+        $("#push").click(function () {
+            var userId = $('#userId').val();
+            var xfType = $('#xfType').val();
+            var money = $('#money').val();
+            var xfDate = $('#xfDate').val();
+            var remark = $('#remark').val();
+            if (userId == '') {
+                layer.msg('账本token不能为空');
+                return;
+            } else if (xfType == '') {
+                layer.msg('消费类型不能为空');
+                return;
+            } else if (money == '') {
+                layer.msg('消费金额不能为空');
+                return;
+            }else if(xfDate){
+                layer.msg('消费时间不能为空');
+                return;
+            }
+            var to = dappAddress;
+            var value = "0";
+            var callFunction = "save"
+            var callArgs = [];
+            callArgs.push(userId);
+            callArgs.push(xfType.toString());
+            callArgs.push(money.toString());
+            callArgs.push(xfDate)
+            nebPay.call(to, value, callFunction, JSON.stringify(callArgs), {
+                listener: cbPush
+            });
+        });
+
+        function cbPush(resp) {
+            console.log("response of push: " + resp)
+        }
+    })
+</script>
+<script src="js/echarts.min.js"></script>
+<script type="text/javascript">
+    function getChartName(value) {
+        if (value == 1) {
+            return '衣';
+        } else if (value == 2) {
+            return '食';
+        } else if (value == 3) {
+            return '住';
+        } else if (value == 4) {
+            return '行';
+        } else if (value == 5) {
+            return '其他';
+        }
+    }
+
+    var myChart = echarts.init(document.getElementById('main1'));
+    var option = {
+        title: {
+            text: '我的账本',
+            subtext: '消费占比',
+            x: 'center'
+        },
+        tooltip: {
+            trigger: 'item',
+            formatter: "{a} <br/>{b} : {c} ({d}%)"
+        },
+        legend: {
+            orient: 'vertical',
+            left: 'left',
+            data: []
+        },
+        series: [
+            {
+                name: '消费类型',
+                type: 'pie',
+                radius: '55%',
+                center: ['50%', '60%'],
+                data: [],
+                itemStyle: {
+                    emphasis: {
+                        shadowBlur: 10,
+                        shadowOffsetX: 0,
+                        shadowColor: 'rgba(0, 0, 0, 0.5)'
+                    }
+                }
+            }
+        ]
+    };
+    //-------------------------------------------------
+    var myChart2 = echarts.init(document.getElementById('main2'));
+    var option2 = {
+        title: {
+            text: 'ECharts 入门示例'
+        },
+        tooltip: {},
+        legend: {
+            data: ['消费']
+        },
+        xAxis: {
+            data: []
+        },
+        yAxis: {},
+        series: [{
+            name: '消费',
+            type: 'bar',
+            data: []
+        }]
+    };
+
+
+</script>
+</body>
+
+</html>
