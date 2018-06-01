@@ -25,10 +25,10 @@
     <section class="hero">
         <div class="container">
             <div class="row nav-wrapper">
-                <div class="col-md-6 col-sm-6 col-xs-6 text-left" style="font-size: 20px">
+                <div class="col-md-6 col-sm-6 col-xs-6 text-left" style="font-size: 22px;color:#fff;font-weight: bold;">
                     CLASS DEPOSIT
                 </div>
-                <div class="col-md-6 col-sm-6 col-xs-6 text-left job-menu" style="font-size: 16px">
+                <div class="col-md-6 col-sm-6 col-xs-6 text-left job-menu" style="font-size: 16px;">
                     <div class="item">
                         <a href="#info" class="animated fadeInUp">记一笔</a>
                     </div>
@@ -65,14 +65,14 @@
                     <div class="feature-content">
                         <img src="img/b.png" alt="">
                         <h1>简单</h1>
-                        <p>基于钱包地址，无需注册</p>
+                        <p>无需注册,基于钱包地址</p>
                     </div>
                 </div>
                 <div class="col-md-4 feature-2 wp2 delay-1s">
                     <div class="feature-content">
                         <img src="img/c.png" alt="">
                         <h1>私密</h1>
-                        <p>免实名档案</p>
+                        <p>档案免实名</p>
                     </div>
                 </div>
             </div>
@@ -82,84 +82,89 @@
 
 <section id="set" class="container page-section">
     <div class="inner contact wp2 delay-05s">
-        <div class="contact-form" style="overflow:hidden;">
-            <!-- Form -->
-            <!-- Left Inputs -->
-            <div class="col-xs-12 animated fadeInLeft visible" data-animation="fadeInLeft" data-animation-delay="300">
-                <input type="text" id="userId" class="form" value="13712345678abcdef" placeholder="账本密钥 （手机号+密码）">
-            </div>
-            <!-- Bottom Submit -->
+
+        <div class="contact-form" style="overflow:hidden;display: none" id="createAccount">
             <div class="relative fullwidth col-xs-12">
-                <!-- Send Button -->
-                <button id="search" class="form-btn semibold">查询</button>
+                <button id="search" class="form-btn semibold">创建</button>
             </div>
-            <!-- End Bottom Submit -->
-            <!-- Clear -->
             <div class="clear"></div>
         </div>
+        <div style="height: 30px;"></div>
+        <div style="overflow: hidden;height: 0;" class="myAccount">
+            <div id="main1" style="width: 50%;height:300px;float: left;"></div>
+            <div id="main2" style="width: 50%;height:300px;float: left;">
 
-        <div style="height: 140px;"></div>
-
-        <div class="myAccount" style="width: 100%;height: 0;overflow:hidden;">
-            <div style="overflow: hidden">
-                <div id="main1" style="width: 50%;height:400px;float: left;"></div>
-                <div id="main2" style="width: 50%;height:400px;float: left;"></div>
+                <div class="table-responsive" id="app" style="height: 100%;overflow-y: auto;">
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th>类型</th>
+                            <th>金额</th>
+                            <th>时间</th>
+                            <th>经办人</th>
+                            <th>备注</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr v-for="l in list">
+                            <td v-html="l.type"></td>
+                            <td v-html="l.money"></td>
+                            <td v-html="l.date"></td>
+                            <td v-html="l.user"></td>
+                            <td v-html="l.remark"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
-
-
-            <form class="form-horizontal" style="margin-top: 50px;">
-                <div class="form-group">
-                    <label class="col-sm-2 control-label">类型</label>
-                    <div class="col-sm-4">
-                        <select class="form-control" id="xfType">
-                            <option value="0">请选择</option>
-                            <option value="1">采购</option>
-                            <option value="2">活动</option>
-                            <option value="3">奖励</option>
-                            <option value="4">其他</option>
-                        </select>
-                    </div>
-                    <label class="col-sm-2 control-label">金额</label>
-                    <div class="col-sm-4">
-                        <input type="number" id="money" class="form-control" placeholder="请输入消费金额">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-2 control-label">时间</label>
-                    <div class="col-sm-4">
-                        <input type="date" class="form-control" id="xfDate" placeholder="请选择时间">
-                    </div>
-                    <label class="col-sm-2 control-label">经办人</label>
-                    <div class="col-sm-4">
-                        <input type="email" class="form-control" id="user" placeholder="请填写经办人">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-2 control-label">备注</label>
-                    <div class="col-sm-4">
-                        <input type="email" class="form-control" id="remark" placeholder="备注">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-sm-offset-2 col-sm-10">
-                        <button type="button" id="push" class="btn btn-default">记录</button>
-                    </div>
-                </div>
-            </form>
         </div>
-
+        <form class="form-horizontal" style="margin-top: 50px;display: none;">
+            <div class="form-group">
+                <label class="col-sm-2 control-label">类型</label>
+                <div class="col-sm-4">
+                    <select class="form-control" id="xfType">
+                        <option value="0">请选择</option>
+                        <option value="1">采购</option>
+                        <option value="2">活动</option>
+                        <option value="3">奖励</option>
+                        <option value="4">其他</option>
+                    </select>
+                </div>
+                <label class="col-sm-2 control-label">金额</label>
+                <div class="col-sm-4">
+                    <input type="number" id="money" class="form-control" placeholder="请输入消费金额">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">时间</label>
+                <div class="col-sm-4">
+                    <input type="date" class="form-control" id="xfDate" placeholder="请选择时间">
+                </div>
+                <label class="col-sm-2 control-label">经办人</label>
+                <div class="col-sm-4">
+                    <input type="email" class="form-control" id="user" placeholder="请填写经办人">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">备注</label>
+                <div class="col-sm-4">
+                    <input type="email" class="form-control" id="remark" placeholder="备注">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="button" id="push" class="btn btn-default">记录</button>
+                </div>
+            </div>
+        </form>
     </div>
 </section>
 <footer id="about" class="footer">
     <section id="site-socials" class="no-padding white-bg">
-        <div class="site-socials inner no-padding">
-            <div class="address socials animated fadeInRight visible" data-animation="fadeInRight"
-                 data-animation-delay="500">
-                <p>Copyright &copy; 2018.基于新一代区块链公链<a href="https://nebulas.io/" target="_blank">NAS</a>&nbsp;&nbsp;&nbsp;
-                    <a href="https://incentive.nebulas.io/cn/signup.html?invite=32KAi"
-                       target="_blank">点我发布DAPP获取100NAS</a>
-                </p>
-            </div>
+        <div class="address socials animated fadeInRight visible" data-animation="fadeInRight"
+             data-animation-delay="500">
+            <p>Copyright &copy; 2018.基于新一代区块链公链<a href="https://nebulas.io/" target="_blank">NAS</a>&nbsp;&nbsp;&nbsp;
+            </p>
         </div>
     </section>
 </footer>
@@ -176,7 +181,7 @@
         var NebPay = require("nebpay");
         var nebPay = new NebPay();
 
-        var dappAddress = "n1g9x8ZaYH4PfTi8BJoTNvpA7S6rYjYQ433";
+        var dappAddress = "n1fA8QdDQ378kVtPURfCjDEjv81EXF4n8Ju";
         //检查扩展是否已安装
         //如果安装了扩展，var“webExtensionWallet”将被注入到web页面中1
         setTimeout(function () {
@@ -186,79 +191,105 @@
             }
         }, 500);
 
-        $('#search').on('click', function () {
-            var token = $('#userId').val();
-            if (token == '') {
-                layer.msg('账本密钥不能为空');
-                return;
+        var app = new Vue({
+            el: '#app',
+            data: {
+                list: []
             }
-            sessionStorage.setItem('iaccount_token', token);
+        });
+        var hasAccount = false;
+
+        function search() {
             var to = dappAddress;
             var value = "0";
             var callFunction = "get";
             var callArgs = [];
-            callArgs.push(token);
             nebPay.simulateCall(to, value, callFunction, JSON.stringify(callArgs), {
                 listener: cbSearch
             });
-        })
+        }
+
+        search();
+        setInterval(function () {
+            search();
+        }, 10000);
+
+        $('#createAccount').on('click', function () {
+            $(this).hide();
+            $('.form-horizontal').show();
+            hasAccount=true;
+        });
 
         function cbSearch(resp) {
             var result = resp.result
             if (result === 'null' || result == '') {
                 myChart.setOption(option);
-                $('.myAccount').css('height', 'auto');
+                $('.myAccount').css('height', '0');
+                if (!hasAccount) {
+                    $('#createAccount').show();
+                }
             } else {
                 myChart.setOption(option);
+                $('.form-horizontal').show();
                 $('.myAccount').css('height', 'auto');
-                /* Vue.set(app, 'list', obj);
-                 $('#app').show();*/
-
                 var resultObj = JSON.parse(result);
                 var len = resultObj.value.split('|-').length;
                 var obj = [];
+                var obj2 = [];
                 for (var i = 0; i < len; i++) {
                     var temp = {
                         value: resultObj.money.split('|-')[i],
                         name: getChartName(resultObj.value.split('|-')[i]),
                     }
                     obj.push(temp);
+
+                    var temp2 = {
+                        type: getChartName(resultObj.value.split('|-')[i]),
+                        money: resultObj.money.split('|-')[i],
+                        date: resultObj.date.split('|-')[i],
+                        user: resultObj.user.split('|-')[i],
+                        remark: resultObj.remark.split('|-')[i],
+                    }
+                    obj2.push(temp2);
                 }
                 myChart.setOption({
                     series: [{data: obj}]
                 });
 
+                Vue.set(app, 'list', obj2);
+                $('#app').show();
             }
 
         }
 
         $("#push").click(function () {
-            var userId = $('#userId').val();
             var xfType = $('#xfType').val();
             var money = $('#money').val();
             var xfDate = $('#xfDate').val();
+            var user = $('#user').val();
             var remark = $('#remark').val();
-            if (userId == '') {
-                layer.msg('账本token不能为空');
-                return;
-            } else if (xfType == '') {
-                layer.msg('消费类型不能为空');
+            if (xfType == '0') {
+                layer.msg('类型不能为空');
                 return;
             } else if (money == '') {
-                layer.msg('消费金额不能为空');
+                layer.msg('金额不能为空');
                 return;
-            } else if (xfDate) {
-                layer.msg('消费时间不能为空');
+            } else if (xfDate === '') {
+                layer.msg('时间不能为空');
+                return;
+            } else if (user == '') {
+                layer.msg('经办人不能为空');
                 return;
             }
             var to = dappAddress;
             var value = "0";
             var callFunction = "save"
             var callArgs = [];
-            callArgs.push(userId);
             callArgs.push(xfType.toString());
             callArgs.push(money.toString());
-            callArgs.push(xfDate)
+            callArgs.push(xfDate);
+            callArgs.push(user);
+            callArgs.push(remark);
             nebPay.call(to, value, callFunction, JSON.stringify(callArgs), {
                 listener: cbPush
             });
@@ -267,20 +298,20 @@
         function cbPush(resp) {
             console.log("response of push: " + resp)
         }
+
+
     })
 </script>
 <script src="js/echarts.min.js"></script>
 <script type="text/javascript">
     function getChartName(value) {
         if (value == 1) {
-            return '衣';
+            return '采购';
         } else if (value == 2) {
-            return '食';
+            return '活动';
         } else if (value == 3) {
-            return '住';
+            return '奖励';
         } else if (value == 4) {
-            return '行';
-        } else if (value == 5) {
             return '其他';
         }
     }
@@ -288,8 +319,7 @@
     var myChart = echarts.init(document.getElementById('main1'));
     var option = {
         title: {
-            text: '我的账本',
-            subtext: '消费占比',
+            text: '班费占比',
             x: 'center'
         },
         tooltip: {
@@ -303,7 +333,7 @@
         },
         series: [
             {
-                name: '消费类型',
+                name: '支出类型',
                 type: 'pie',
                 radius: '55%',
                 center: ['50%', '60%'],
